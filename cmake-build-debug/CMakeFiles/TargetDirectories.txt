@@ -1,0 +1,3 @@
+D:/project/web/github/clearn/cmake-build-debug/CMakeFiles/clearn.dir
+D:/project/web/github/clearn/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/project/web/github/clearn/cmake-build-debug/CMakeFiles/rebuild_cache.dir
