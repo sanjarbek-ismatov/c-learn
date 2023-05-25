@@ -14,9 +14,15 @@ int main(){
             .isMarried = false
     };
     struct Person person3;
-    printf("%s\n", person.name);
+
     printf("%s\n", person2.name);
     person3.name = "Sanjar";
     printf("%s\n", person3.name);
+
+//    writing pointer with struct
+    struct Person* personPointer = &person;
+    (*personPointer).name = "CoderX";
+    personPointer -> age++;
+    printf("person's name is %s, age is %d\n", person.name, person.age);
     return 0;
 }
