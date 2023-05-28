@@ -50,11 +50,15 @@
 int g = 7;
 int main();
 int main(){
+    const float age = 17.5;
+    double age2 = 17.5;
+    unsigned long long int n = 9999999999999999999999999999;
     int a = 10;
     int b = 5;
-    if(a == 10){
-        int b = 10;
-    }
+//    if(a == 10){
+//        int b = 10;
+//    }
     printf("%d %d\n", b, g);
+    printf("my age is %.1f %.1lf", age, age2);
     return 0;
 }
