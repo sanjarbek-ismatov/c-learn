@@ -27,7 +27,7 @@ int main(){
         sleep(1);
         printf("Aniqlandi!\n");
          sleep(1);
-        if(strcmp(person.name, "Sanjarbek") == 0)
+        if(strcmp(person.name, "Sanjarbek") == 0 || strcmp(person.name, "Jinnivoy") == 0)
         printf("Siz har doim \033[1;36m%s\033[0mni kuchliroq sevasiz!!\n", person.herName);
         else printf("Baribir ham \033[1;33m%s\033[0m sizni qattiqroq sevadi\n", person.herName);
         printf("\033[1;33m%s\033[0m + \033[1;36m%s\033[0m = \033[1;32mLove!\033[0m, baxtli bo'linglar!!!!\n", person.name, person.herName);
