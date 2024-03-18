@@ -10,7 +10,10 @@
 
 #include <ctype.h>
 
+// this was my code, wow, But I can't remember it, howwwww???
+
 char getRandomCharacter() {
+
 
     int randomIndex = rand() % 3;
     char sym[3] = {
