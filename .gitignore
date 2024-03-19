@@ -1,3 +1,6 @@
 *.exe
 *.log
+*.i
+*.o
+*.s
 cmake-build-debug
