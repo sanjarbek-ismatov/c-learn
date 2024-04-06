@@ -1,33 +1,54 @@
+// This library for input and output
 #include <stdio.h>
+
+// This library includes functions such as memory allocating ones
 
 #include <stdlib.h>
 
+// To declare boolean
+
 #include <stdbool.h>
+
+// For string
 
 #include <string.h>
 
+// This's been used for sleep function
+
 #include <time.h>
+
+// To analyze type of values
 
 #include <ctype.h>
 
 // this was my code, wow, But I can't remember it, howwwww???
 
-char getRandomCharacter() {
+/**
+ * get_random_character function returns either m or b or q
+*/
 
+char get_random_character() {
+    // in every calls, random_index is defined as a number from 0 to 2 
 
-    int randomIndex = rand() % 3;
+    int random_index = rand() % 3;
+
+    // An array to store f - fist, c - cloud, s - a pair of scissors
     char sym[3] = {
-            'm',
-            'b',
-            'q'
+            'f',
+            'c',
+            's'
     };
-    printf("%d\n", randomIndex);
-    return sym[randomIndex];
+    // printf("%d\n", random_index);
+ 
+    // Returns a random item of the array
+    return sym[random_index];
 }
+
+
 bool checkWhichWon(char * string) {
     if (isupper(string[0])) string[0] = tolower(string[0]);
     char * toString = malloc(10);
-    char randomResult = getRandomCharacter();
+    char randomResult = get_random_character();
     switch (randomResult) {
         case 'm':
             strcpy(toString, "musht");
