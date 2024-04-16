@@ -10,9 +10,16 @@ int main(){
 	// scanf("%o", &a);
 	// printf("%o %d %x %X\n", a, a, a, a);
 
-	char first[50];
-	char last[50];
-	scanf("%s %s", &first, &last);
-	printf("%s %s\n",first, last);
+	// int first = 10;
+	// float last;
+	// char third;
+	// scanf("%f %c", &last, &third);
+	// printf("%p %p %p\n", (void*)&first, &last, &third);
+
+	char myName[] = "Sanjarbek";
+	int myAge = 18;
+	printf("%20d\n", myAge);
+	printf("%20.20s\n", myName);
+	printf("%20.2f\n", 18.55);
 	return 0;
 }
