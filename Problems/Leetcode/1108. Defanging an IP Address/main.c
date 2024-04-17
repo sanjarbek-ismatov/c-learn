@@ -16,20 +16,21 @@ void insert(char str[], int position, char c){
     str[position] = c;
 }
 char * defangIPaddr(char * address){
-    char addr[strlen(address) + 1];
+    char addr[strlen(address) * 2];
     strcpy(addr, address);
-    for(int i = 0; i < strlen(address); i++){
+    for(int i = 0; i < strlen(addr); i++){
         if(addr[i] == '.'){
             insert(addr, i, '[');
             insert(addr, i + 2, ']');
+           
             i += 2;
         }
     }
-    char* res = malloc(strlen(addr) + 1);
+    char* res = malloc(sizeof(addr) + 1);
     strcpy(res, addr);
     return res;
 }
 int main(){
-    printf("%s\n", defangIPaddr("255.100.50.0")); // it should print: 255[.]100[.]50[.]0
+    printf("%s\n", defangIPaddr("1.1.1.1")); // it should print: 255[.]100[.]50[.]0
     return 0;
 }
