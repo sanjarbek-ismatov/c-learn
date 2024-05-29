@@ -1,35 +1,25 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include<stdbool.h>
 typedef struct{
     char name[20];
     int speed;
 } Member;
 
 Member* merge_sort(Member family[], int size);
+Member* find_the_fastest_and_slowest(Member family[], int size);
+int combination_checker(Member family[], int size, int time);
 void members_creator(Member family[]);
 
 int main(){
     // int number_of_family;
     // scanf("%d", &number_of_family);
-    // Member family[4];
-    // members_creator(family);
-    Member family[] = {
-        {"Alice", 5}, 
-        {"Bob", 2}, 
-        {"Charlie", 9}, 
-        {"David", 1}, 
-        {"Eve", 5}, 
-        {"Frank", 6}
-    };
+    Member family[4];
+    members_creator(family);
     int size = sizeof(family) / sizeof(family[0]);
-
-    Member* result = merge_sort(family, size);
-
-    printf("Sorted family members by speed:\n");
-    for (int i = 0; i < size; i++) {
-        printf("Name: %s, Speed: %d\n", result[i].name, result[i].speed);
-    }
+    bool result = combination_checker(family, size, 17);
+    printf("%d\n", result);
     return 0;
 }
 
@@ -42,12 +32,21 @@ void members_creator(Member family[]){
     }
 }
 
-int combination_checker(Member family[], int time){
-
+int combination_checker(Member family[], int size, int time){
+    Member* fastest_ones = find_the_fastest_and_slowest(family, size);
+    const int result = fastest_ones[0].speed + fastest_ones[1].speed * 3 + fastest_ones[2].speed;
+    return result <= time ? true : false;
 }
 
-Member* find_the_fastest_two(Member family[]){
+Member* find_the_fastest_and_slowest(Member family[], int size){
+    Member* sorted = merge_sort(family, size);
+    Member* the_fastest_ones = (Member *)malloc(sizeof(Member) * 2);
+    the_fastest_ones[0] = sorted[0];
+    the_fastest_ones[1] = sorted[1];
+    the_fastest_ones[2] = sorted[size - 1];
+    return the_fastest_ones;
 }
+
 
 void copy_array(Member source[], Member destination[], int start, int end){
     for(int i = start; i < end; i++){
