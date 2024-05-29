@@ -49,6 +49,12 @@ int combination_checker(Member family[], int time){
 Member* find_the_fastest_two(Member family[]){
 }
 
+void copy_array(Member source[], Member destination[], int start, int end){
+    for(int i = start; i < end; i++){
+        destination[i - start] = source[i];
+    }
+}
+
 Member* merge(Member left[], int left_length, Member right[], int right_length){
     Member* merged = (Member*)malloc(sizeof(Member) * (left_length + right_length));
     int current_merged_index = 0,
@@ -59,6 +65,13 @@ Member* merge(Member left[], int left_length, Member right[], int right_length){
             merged[current_merged_index++] = right[current_right_index++];
         }else merged[current_merged_index++] = left[current_left_index++];
     }
+
+    while(current_left_index < left_length){
+        merged[current_merged_index++] = left[current_left_index++];
+    }
+    while(current_right_index < right_length){
+        merged[current_merged_index++] = right[current_right_index++];
+    }
     return merged;
 }
 
@@ -67,9 +80,21 @@ Member* merge_sort(Member family[], int size){
     int midd = size / 2;
     int left_size = midd;
     int right_size = size - midd;
-    Member* left = merge_sort(family, left_size);
-    Member* right = merge_sort(family, right_size);
-    return merge(left, left_size, right, right_size);
+    
+    Member* left = (Member *)malloc(sizeof(Member) * left_size);
+    Member* right = (Member *)malloc(sizeof(Member) * right_size);
+    copy_array(family, left, 0, left_size);
+    copy_array(family, right, midd, size);
+    left = merge_sort(left, left_size);
+    right = merge_sort(right, right_size);
+
+    Member* merged = merge(left, left_size, right, right_size);
+
+    copy_array(merged, family, 0, left_size + right_size);
+    free(left);
+    free(right);
+    free(merged);
+    return family;
 }
 
 
