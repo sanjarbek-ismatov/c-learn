@@ -7,9 +7,14 @@ typedef struct{
     int speed;
 } Member;
 
+typedef struct{
+    Member member[2];
+    char direction[4];
+} Attempt;
+
 Member* merge_sort(Member family[], int size);
 Member* find_the_fastest_and_slowest(Member family[], int size);
-int combination_checker(Member family[], int size, int time);
+bool combination_checker(Member family[], int size, int time);
 void members_creator(Member family[]);
 
 int main(){
@@ -32,11 +37,23 @@ void members_creator(Member family[]){
     }
 }
 
-int combination_checker(Member family[], int size, int time){
+bool combination_checker(Member family[], int size, int time){
     Member* fastest_ones = find_the_fastest_and_slowest(family, size);
     const int result = fastest_ones[0].speed + fastest_ones[1].speed * 3 + fastest_ones[2].speed;
     return result <= time ? true : false;
 }
+
+/*
+Attempt* show_result(Member family[], int size, int time){
+    bool result = combination_checker(family, size, time);
+    if(result){
+        Attempt* attemts = (Attempt*)malloc(sizeof(Attempt) * size);
+
+    } else{
+        return NULL;
+    }
+}
+*/
 
 Member* find_the_fastest_and_slowest(Member family[], int size){
     Member* sorted = merge_sort(family, size);
