@@ -4,6 +4,7 @@ class Node{
 public:
     int value;
     Node* next;
+    Node* prev;
     Node(int value){
         this -> value = value;
         this -> next = nullptr; 
@@ -23,6 +24,18 @@ public:
     }
     bool isEmpty(){
         return this -> size == 0;
+    }
+    void prepend(int value){
+        Node* node = new Node(value);
+        if(this -> isEmpty()){
+            this -> head = node;
+            this -> tail = node;
+        } else{
+            this->head ->prev = node;
+            node -> next = this -> head;
+            this -> head = node;
+        }
+        this -> size++;
     }
 };
 

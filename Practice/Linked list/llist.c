@@ -1,8 +1,10 @@
 #include<stdio.h>
 #include<stdbool.h>
-typedef struct {
+#include<stdlib.h>
+typedef struct Node{
     int value;
-    Node next;
+    struct Node* next;
+    struct Node* prev;
 } Node;
 
 typedef struct {
@@ -20,8 +22,34 @@ LinkedList initialise_list(){
     return list;
 }
 
+Node* initialise_node(int value){
+    Node* node = (Node*)malloc(sizeof(Node));
+    if(node == NULL){
+        fprintf(stderr, "Memory allocation failed!");
+        exit(1);
+    }
+    node -> value = value;
+    node -> next = NULL;
+    node -> prev = NULL;
+    return node;
+}
+
 bool is_empty(LinkedList* list){
     return list -> size == 0;
+}
+
+
+void prepend(LinkedList* this, int value){
+    Node* node = initialise_node(value);
+    if(is_empty(this)){
+        this -> head = node;
+        this -> tail = node;
+    }else{
+        this -> head -> prev = node;
+        node -> next = this -> head;
+        this -> head = node;
+    }
+    this -> size++;
 }
 
 int main(){
