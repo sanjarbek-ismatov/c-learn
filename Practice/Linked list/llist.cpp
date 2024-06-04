@@ -37,6 +37,9 @@ public:
         }
         this -> size++;
     }
+    void append(){
+        
+    }
 };
 
 int main(){
