@@ -18,10 +18,10 @@ class LinkedList{
         this.tail = null
         this.size = 0
     }
-    isEmpty(){
+    isEmpty(): boolean{
         return this.size === 0;
     }
-    prepend(value: number){
+    prepend(value: number):void{
         const node = new LNode(value)
         if(this.isEmpty()){
             this.head = node
@@ -33,8 +33,23 @@ class LinkedList{
         }
         this.size++
     }
+    append(value: number): void{
+        if(this.isEmpty())this.prepend(value)
+        else{
+            if(this.tail){
+                const node = new LNode(value)
+                this.tail.next = node
+                node.prev = this.tail
+                this.tail = node
+                this.size++
+            }
+        }
+    }
 
 }
 
 const llist = new LinkedList()
-console.log(llist.size)
+llist.append(1)
+llist.append(2)
+llist.append(3)
+console.log(llist)

@@ -12,7 +12,7 @@ public:
 };
 
 class LinkedList{
-private:
+public:
     Node* head;
     Node* tail;
 public:
@@ -37,13 +37,17 @@ public:
         }
         this -> size++;
     }
-    void append(){
-        
+    void append(int value){
+        if(this->isEmpty()){
+
+        }
     }
 };
 
 int main(){
     LinkedList llist = LinkedList();
-    cout << llist.isEmpty() << endl;
+    llist.prepend(10);
+    llist.prepend(20);
+    cout << llist.tail->value << endl;
     return 0;
 }

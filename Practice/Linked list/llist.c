@@ -54,5 +54,7 @@ void prepend(LinkedList* this, int value){
 
 int main(){
     LinkedList llist = initialise_list();
-    printf("%d\n", llist.size);
+    prepend(&llist, 10);
+    prepend(&llist, 20);
+    printf("%d\n", llist.tail->value);
 }
