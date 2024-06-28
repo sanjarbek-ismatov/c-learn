@@ -13,6 +13,11 @@ int main(){
     // Module
     printf("11 %% 3 = 2\n", fmod(11, 3));
     // Power
-    printf("%.0lf", pow(2, 3));
+    printf("%.0lf\n", pow(2, 3));
+    // Double splitting
+    double exam = 1234.5678;
+    double integer_part;
+    double fraction_part = modf(exam, &integer_part);
+    printf("%.0lf %.4lf", integer_part, fraction_part);
     return 0;
 }
