@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<stdlib.h>
 
 int main(void){
     int row0[] = {1, 2, 3};
@@ -14,5 +13,5 @@ int main(void){
         }
         printf("\n");
     }
-    return EXIT_SUCCESS;
+    return 0;
 }
