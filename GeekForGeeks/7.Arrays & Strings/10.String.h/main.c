@@ -1,9 +1,11 @@
 #include<stdio.h>
 #include<string.h>
+#include<locale.h>
 #include"string.h"
 int main(){
+    setlocale(LC_COLLATE, "en_US.UTF-8");
     char name[] = "Sanjarbek";
-    char name2[] = "Sardorbek";
+    char name2[] = "Sanjarbek";
     // printf("%d\n", strlen_clone(name));
     // strcpy_clone(name, "Nothing!");
     // strncpy_clone(name, "Sanjarbek",6);
@@ -26,8 +28,14 @@ int main(){
     // while(token2 = strtok_r(temp, "-", &temp)){
     //     printf("%s\n", token2);
     // }
-    printf("%d\n",strcoll("sA", "Saa"));
-    printf("%d %d\n", 'a', 'A');
+
+    // printf("%d\n",strcoll("sA", "Saa"));
+    // printf("%d %d\n", 'a', 'A');
+
+    // char example[50] = "I knew that. But";
+    // memset(example + 11, '.', 4);
+    // printf("%s\n", example);
+    // printf("%d\n", memcmp(name, name2, sizeof(name)));
     // printf("%s\n", name);
     return 0;
 }
