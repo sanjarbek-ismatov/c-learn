@@ -37,5 +37,15 @@ int main(){
     // printf("%s\n", example);
     // printf("%d\n", memcmp(name, name2, sizeof(name)));
     // printf("%s\n", name);
+
+    // char str1[] = ";
+    char str1[100] = "Learningisfun";
+    char str2[100] = "Learningisfun";
+    char*first, *second;
+    first = str1;
+    second = str2;
+    memcpy(first + 8, first, 10);
+    memmove(second + 8, second, 10);
+    printf("%s %s\n", str1, str2);
     return 0;
 }
