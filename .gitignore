@@ -4,6 +4,7 @@
 *.o
 *.s
 *.obj
+*.out
 main
 .vscode
 .vs
