@@ -1,6 +1,5 @@
 #include<stdio.h>
-
 int main(){
-    printf("Hello World");
+    printf("%d\n", (int)sizeof(unsigned long long int));
     return 0;
 }
