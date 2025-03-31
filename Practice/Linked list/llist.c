@@ -38,7 +38,6 @@ bool is_empty(LinkedList* list){
     return list -> size == 0;
 }
 
-
 void prepend(LinkedList* this, int value){
     Node* node = initialise_node(value);
     if(is_empty(this)){
@@ -52,9 +51,21 @@ void prepend(LinkedList* this, int value){
     this -> size++;
 }
 
+void append(LinkedList* this, int value){
+    if(is_empty(this)) prepend(this, value);
+    else{
+        Node* node = initialise_node(value);
+        this -> tail -> next = node;
+        node -> prev = this -> tail;
+        this -> tail = node;
+        this -> size++;
+    }
+}
+
 int main(){
     LinkedList llist = initialise_list();
     prepend(&llist, 10);
     prepend(&llist, 20);
-    printf("%d\n", llist.tail->value);
+    append(&llist, 30);
+    printf("%d\n", llist.tail->prev->next-> value);
 }
