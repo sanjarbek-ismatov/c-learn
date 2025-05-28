@@ -35,6 +35,8 @@ int main()
     streak_time.in_minutes = the_difference / 60;
     streak_time.in_hours = streak_time.in_minutes / 60;
     streak_time.in_days = streak_time.in_hours / 24;
-    printf("%d %d %d", streak_time.in_days, streak_time.in_hours, streak_time.in_minutes);
+    printf("Output:\n%d/720\n", streak_time.in_hours);
+    char tmp;
+    scanf("%c", &tmp);
     return 0;
 }
