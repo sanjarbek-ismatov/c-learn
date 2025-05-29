@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void Exercise1_8()
+void exercise1_8()
 {
     /*
            Exercise 1-8
@@ -22,7 +22,7 @@ void Exercise1_8()
     }
 }
 
-void Exercise1_9_1()
+void exercise1_9_1()
 {
     int c, b = 0;
     while ((c = getchar()) != EOF)
@@ -37,7 +37,7 @@ void Exercise1_9_1()
     }
 }
 
-void Exercise1_9_2()
+void exercise1_9_2()
 {
     int c, b = 0;
     while ((c = getchar()) != EOF)
@@ -58,7 +58,7 @@ void Exercise1_9_2()
     }
 }
 
-void Exercise1_9_3()
+void exercise1_9_3()
 {
     int c;
     while ((c = getchar()) != EOF)
@@ -74,7 +74,7 @@ void Exercise1_9_3()
     }
 }
 
-void Exercise1_9_4()
+void exercise1_9_4()
 {
     int c, p;
     while ((c = getchar()) != EOF)
@@ -91,7 +91,28 @@ void Exercise1_9_4()
         }
     }
 }
+void exercise1_10()
+{
+    for (int c; (c = getchar());)
+    {
+        switch (c)
+        {
+        case '\t':
+            printf("\\t");
+            break;
+        case '\b':
+            printf("\\b");
+            break;
+        case '\\':
+            printf("\\");
+            break;
+        default:
+            putchar(c);
+        }
+    }
+}
+
 int main()
 {
-    Exercise1_9_4();
+    exercise1_10();
 }
