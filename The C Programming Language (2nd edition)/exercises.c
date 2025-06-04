@@ -1,5 +1,6 @@
 #include <stdio.h>
-
+#define IN 1  /* inside a word */
+#define OUT 0 /* outside a word */
 void exercise1_8()
 {
     /*
@@ -112,7 +113,31 @@ void exercise1_10()
     }
 }
 
+void exercise1_11()
+{
+    int c, nl, nw, nc, state;
+    state = OUT;
+    nl = nw = nc = 0;
+    while ((c = getchar()) != EOF)
+    {
+        ++nc;
+        if (c == ' ' || c == '\n' || c == '\t')
+            state = OUT;
+        else if (state == OUT)
+        {
+            state = IN;
+            ++nw;
+        }
+        if (c == '\n')
+        {
+            printf("line: %d word: %d character: %d\n", ++nl, nw, nc);
+        }
+    }
+}
+
+/* count lines, words, and characters in input */
 int main()
 {
-    exercise1_10();
+    exercise1_11();
+    return 0;
 }
