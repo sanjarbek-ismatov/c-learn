@@ -10,6 +10,7 @@
  */
 
 bool bool_convert(char bool_str[]);
+
 int main()
 {
     struct Person
