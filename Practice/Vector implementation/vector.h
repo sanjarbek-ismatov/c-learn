@@ -1,19 +1,28 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+
+typedef unsigned int uint;
 typedef struct
 {
-    int capacity;
-    int length;
-    int *arr;
+    uint capacity;
+    uint length;
+    uint elem_size;
+    void **arr;
 } Vector;
 
-Vector *init_vec_int(int initial_size)
+void print_int(int i)
+{
+    printf("%d\n", i);
+}
+
+Vector *init_vec(uint elem_size, uint initial_size)
 {
     Vector *vector_init = (Vector *)malloc(sizeof(Vector));
     vector_init->capacity = initial_size;
     vector_init->length = 0;
-    vector_init->arr = (int *)malloc(initial_size * sizeof(int));
+    vector_init->elem_size = elem_size;
+    vector_init->arr = malloc(initial_size * elem_size);
     return vector_init;
 }
 
@@ -22,25 +31,25 @@ bool size_full_check(Vector *vec)
     return (vec->length) == vec->capacity;
 }
 
-void size_change(Vector *vec, bool inc)
+void size_change(Vector *vec)
 {
-    if (inc)
-        vec->capacity *= 2;
-    vec->arr = (int *)realloc(vec->arr, sizeof(int) * (vec->capacity));
+    vec->capacity *= 2;
+    vec->arr = realloc(vec->arr, vec->elem_size * vec->capacity);
 }
 
-void push_back(Vector *vec, int item)
+void push_back(Vector *vec, void *item)
 {
     if (size_full_check(vec))
-        size_change(vec, true);
-
+        size_change(vec);
     vec->arr[vec->length] = item;
     vec->length++;
 }
 
-void print_int(int i)
+void *get_vec(Vector *vec, int index)
 {
-    printf("%d\n", i);
+    if (index >= vec->length)
+        return NULL;
+    return vec->arr[index];
 }
 
 void print_vec(Vector *vec)
@@ -53,7 +62,7 @@ void print_vec(Vector *vec)
         int i;
         for (i = 0; i < vec->length - 1; i++)
         {
-            printf("%d, ", vec->arr[i]);
+            printf("%p, ", vec->arr[i]);
         }
         printf("%d", vec->arr[i]);
         printf("}\n");
