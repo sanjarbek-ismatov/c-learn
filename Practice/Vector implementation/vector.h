@@ -34,7 +34,7 @@ bool size_full_check(Vector *vec)
 void size_change(Vector *vec)
 {
     vec->capacity *= 2;
-    vec->arr = realloc(vec->arr, vec->elem_size * vec->capacity);
+    vec->arr = (void **)realloc(vec->arr, vec->elem_size * vec->capacity);
 }
 
 void push_back(Vector *vec, void *item)
