@@ -55,3 +55,22 @@ double power(double num, int exponential) {
   }
   return result;
 }
+
+int get_line(char dest[], int limit) {
+  int i = 0, c;
+  while (limit - i + 1 && (c = getchar()) != EOF) {
+    if (c == '\n')
+      break;
+    dest[i] = c;
+    i++;
+  }
+  dest[i] = '\0';
+  return i;
+}
+
+void copy_string(char dest[], char src[]) {
+  int i = 0;
+  do {
+    dest[i] = src[i];
+  } while (src[i++] != '\0');
+}

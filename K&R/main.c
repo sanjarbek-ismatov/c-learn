@@ -1,8 +1,7 @@
-#include "examples/examples.h"
-#include <stdio.h>
+#include "exercises/exercises.h"
 
 int main() {
-  double result = power(2.5, 3);
-  printf("%.2lf\n", result);
+  // exercise1_20();
+  exercise1_21();
   return 0;
 }

@@ -7,4 +7,8 @@ void exercise1_9_3();
 void exercise1_9_4();
 void exercise1_10();
 void exercise1_11();
+void exercise1_16();
+void exercise1_19();
+void exercise1_20();
+void exercise1_21();
 #endif
