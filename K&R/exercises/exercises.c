@@ -172,7 +172,7 @@ void exercise1_21() {
         if (tab_c > 0)
           string[j] = '\t';
         else if (spc_c > 0)
-          string[j] = ' '
+          string[j] = ' ';
       }
     }
     c = 0;
