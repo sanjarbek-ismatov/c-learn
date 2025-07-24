@@ -159,22 +159,22 @@ void exercise1_20() { // detab
 }
 
 void exercise1_21() {
-  char string[] = "This is      big, isn't          it,  right?";
-  int c = 0;
-  for (int i = 0; string[i] != '\0'; i++) {
-    if (string[i] == ' ') {
-      do {
-        c++;
-      } while (string[++i] == ' ');
-      int tab_c = c / TAB_SIZE;
-      int spc_c = c - TAB_SIZE * tab_c;
-      for (int j = i; j <= c; j++) {
-        if (tab_c > 0)
-          string[j] = '\t';
-        else if (spc_c > 0)
-          string[j] = ' ';
+  int c, bc = 0;
+  while ((c = getchar()) != EOF) {
+    if (c == ' ') {
+      if (++bc == TAB_SIZE) {
+        // tab
+        putchar('\t');
+        bc = 0;
       }
+      printf("%d", bc);
+    } else {
+      // reset and replacement
+
+      while (bc-- > 0) {
+        putchar(' ');
+      }
+      putchar(c);
     }
-    c = 0;
   }
 }
