@@ -7,7 +7,14 @@ typedef struct {
   uint capacity;
 } Vector;
 
-Vector *vector_init(uint capacity) {
+void index_range_check(int length, int index) {
+  if (index < 0 || index > length - 1) {
+    fprintf(stderr, "Error: Index is out of range!");
+    exit(1);
+  }
+}
+
+Vector *vector_init(int capacity) {
   if (capacity < 0) {
     fprintf(stderr, "Error: Wrong capacity size!");
     exit(1);
@@ -47,12 +54,26 @@ void vector_add(Vector *current_vector, int adding_item) {
   *new_space = adding_item;
 }
 
+void vector_remove(Vector *current_vector, int index) {
+  index_range_check(current_vector->length, index);
+}
+
+int *vector_get(Vector *current_vector, int index) {
+  if (!current_vector || !current_vector->buffer) {
+    fprintf(stderr, "Error: Invalid Vector given!");
+    exit(1);
+  }
+  index_range_check(current_vector->length, index);
+  return current_vector->buffer + index;
+}
+
 int main(void) {
   Vector *simple_vector = vector_init(10);
   vector_add(simple_vector, 1);
   vector_add(simple_vector, 2);
   vector_add(simple_vector, 3);
-  printf("%d %d %d\n", simple_vector->buffer[0], simple_vector->buffer[1],
-         simple_vector->buffer[2]);
+  vector_add(simple_vector, 4);
+  for (uint i = 0; i < simple_vector->length; i++)
+    printf("%d ", *vector_get(simple_vector, i));
   return 0;
 }
