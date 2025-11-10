@@ -1,1 +1,0 @@
-void makeColorful(char* string, char* color);
