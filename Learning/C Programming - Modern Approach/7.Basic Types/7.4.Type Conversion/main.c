@@ -1,4 +1,6 @@
 #include <stdio.h>
+#define ptr_int_macro int *
+typedef int *ptr_int_def;
 int main() {
   int i = -5;
   unsigned int u = 1;
@@ -25,5 +27,9 @@ int main() {
 
   sum = (long)(k * l); // the same error
   printf("%ld\n", sum);
+
+  ptr_int_macro num1,
+      num2; // num1 is a pointer but num2 is not so macro fails here
+  ptr_int_def num3, num4; // this works
   return 0;
 }
