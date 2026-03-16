@@ -1,0 +1,1 @@
+I found this book quite useful and deep enough to learn C through. The book talks about C89 and C99. Although the book is old enough, it's concepts are still relevant and useful to learn C thoroughly in my opinion!
