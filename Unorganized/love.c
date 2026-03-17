@@ -5,11 +5,11 @@
 /**
  * The origin of the code was dedicated to her, my ex-girlfriend
  * The code's perspective was quite positive, but I wanted to change it as I
- * already broke up with her (I know I was pathetic) You can the the original
+ * already broke up with her (I know that I was pathetic) You can see the original
  * code from here the repository: (first code in May)
  * https://github.com/sanjarbek-ismatov/c-learn/blob/c2c51a63890c7fafaa5694b3c296c3284f9a70d8/love.c
  * , (updated code in August):
- * https://github.com/sanjarbek-ismatov/c-learn/blob/2a9921c637c42c09c3cc6ecd87e1b8b5ea56d104/love.c
+    * https://github.com/sanjarbek-ismatov/c-learn/blob/2a9921c637c42c09c3cc6ecd87e1b8b5ea56d104/love.c
  */
 
 bool bool_convert(char bool_str[]);
