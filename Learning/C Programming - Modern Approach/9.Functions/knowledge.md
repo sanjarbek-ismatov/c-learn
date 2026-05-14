@@ -32,3 +32,24 @@ int main(void) {
 ```c
 foo(5, (const int[]){1, 2, 3, 4, 5});
 ```
+## An old style of function declaration (not supported in C23)
+```c
+void foo(bar)
+int bar;
+{
+    // code
+}
+```
+## An advantage in function declaration
+It's allowed to name parameters with proper names in function declaration while using self-understandable names in the actual function for programmer's advantage
+```c
+int calc(int number1, int number2);
+int main(){
+    calc(1, 2);
+    return 0;
+}
+...
+int calc(int a, int b){
+    ...
+}
+```

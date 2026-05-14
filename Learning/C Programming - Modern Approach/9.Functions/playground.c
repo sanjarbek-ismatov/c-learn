@@ -1,6 +1,12 @@
 #include <stdio.h>
-void func(const int arr[static 5]) { printf("%d\n", arr[0]); }
+int gcd(int a, int b) {
+  if (b == 0)
+    return a;
+  return gcd(b, a % b);
+}
 int main(void) {
-  func((const int[5]){1, 2, 3, 4, 5});
+  int a = 10, b = 5;
+  int r = gcd(a, b);
+  printf("%d\n", r);
   return 0;
 }
