@@ -1,12 +1,11 @@
 #include <stdio.h>
-int gcd(int a, int b) {
-  if (b == 0)
-    return a;
-  return gcd(b, a % b);
+void pb(int n) {
+  if (n > 0) {
+    pb(n - 1);
+    putchar('0' + n);
+  }
 }
 int main(void) {
-  int a = 10, b = 5;
-  int r = gcd(a, b);
-  printf("%d\n", r);
+  pb(5);
   return 0;
 }
