@@ -1,11 +1,19 @@
 #include <stdio.h>
-void pb(int n) {
-  if (n > 0) {
-    pb(n - 1);
-    putchar('0' + n);
+#include <stdlib.h>
+#include <time.h>
+#define s 10
+void print_array(char[][*]);
+void generate_random_walk(char[][*]);
+int main(void) { return 0; }
+
+void print_array(char matrix[][s]) {
+  for (int i = 0; i < s; i++) {
+    for (int j = 0; j < s; j++) {
+      putchar(matrix[i][j]);
+    }
+    putchar('\n');
   }
 }
-int main(void) {
-  pb(5);
-  return 0;
+void generate_random_walk(char matrix[][s]){
+    
 }
